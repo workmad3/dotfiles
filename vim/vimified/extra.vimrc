@@ -1,3 +1,4 @@
+" vim: set syntax=vim:
 Bundle "nono/vim-handlebars"
 Bundle "leshill/vim-json"
 Bundle "tpope/vim-bundler"

@@ -1,3 +1,4 @@
+" vim: set syntax=vim:
 " Reset to preferred behaviour {{{
 set norelativenumber
 set number
