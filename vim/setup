@@ -4,7 +4,9 @@ pushd $(dirname "$0")
 current_dir=$(pwd)
 popd
 
+pushd $HOME
 curl -L https://raw.github.com/zaiste/vimified/master/install.sh | sh
+popd
 
 ln -fs $current_dir/vimified/extra.vimrc $HOME/.vim/extra.vimrc
 ln -fs $current_dir/vimified/local.vimrc $HOME/.vim/local.vimrc
