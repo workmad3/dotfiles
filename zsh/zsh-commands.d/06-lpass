@@ -1,0 +1,12 @@
+alias lp-wait-clear='sleep 30; echo "" | pbcopy'
+function lp-password {
+  lpass show "$1" --${2-password} -c
+  echo "Clipboard will be cleared in 30 seconds"
+  nohup lp-wait-clear >& /dev/null &
+}
+
+alias lp-gpg-pw='lp-password "PGP Key" notes'
+alias lp-ssh-pw='lp-password "GPG-agent SSH password" notes'
+alias lp-apple-pw='lp-password "Apple ID"'
+alias lp-pia-pw='lp-password "Private Internet Access VPN"'
+alias lp-avault-pw='lp-password "Ansible Vault" notes'

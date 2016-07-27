@@ -1,0 +1,9 @@
+function zsh-reload() {
+  source $HOME/.zshrc
+  zsh-reload-completions
+}
+
+function zsh-reload-completions() {
+  rm -rf ~/.zcompdump
+  compinit
+}

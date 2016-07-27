@@ -1,0 +1,11 @@
+#!/bin/bash
+
+pushd $(dirname "$0")
+current_dir=$(pwd)
+popd
+
+curl -L https://raw.github.com/zaiste/vimified/master/install.sh | sh
+
+ln -fs $current_dir/vimified/extra.vimrc $HOME/.vim/extra.vimrc
+ln -fs $current_dir/vimified/local.vimrc $HOME/.vim/local.vimrc
+ln -fs $current_dir/vimified/after.vimrc $HOME/.vim/after.vimrc

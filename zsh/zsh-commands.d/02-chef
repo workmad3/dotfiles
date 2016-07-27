@@ -1,0 +1,9 @@
+function tguard-chef() {
+  rm $HOME/.chef
+  ln -s $HOME/.chef-tguard $HOME/.chef
+}
+
+function hedtek-chef() {
+  rm $HOME/.chef
+  ln -s $HOME/.chef-hedtek $HOME/.chef
+}

@@ -1,0 +1,7 @@
+export PROFILE_D="$HOME/.profile.d"
+
+if [ -d $PROFILE_D ]; then
+  for conf in `ls $PROFILE_D`; do
+    export ${conf}=`cat $PROFILE_D/${conf}`
+  done
+fi

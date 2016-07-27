@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for dir in $( ls ); do
+  if [[ $dir != "setup" ]]; then
+    pushd $dir
+    ./setup
+    popd
+  fi
+done

@@ -1,0 +1,7 @@
+function reset-circuits-schema() {
+  createdb circuits-reset
+  psql -c "CREATE EXTENSION pg_stat_statements;" circuits-reset
+  DEV_PG_DB=circuits-reset rake db:migrate
+  DEV_PG_DB=circuits-reset rake annotate_models
+  dropdb circuits-reset
+}

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+pushd $(dirname "$0")
+current_dir=$(pwd)
+popd
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+ln -fs $current_dir/zshrc $HOME/.zshrc
+ln -fs $current_dir/zsh_profile $HOME/.zsh_profile
+ln -fs $current_dir/zsh.aliases $HOME/.zsh.aliases
+ln -fs $current_dir/oh-my-zsh/themes/workmad3.zsh-theme $HOME/.oh-my-zsh/themes/workmad3.zsh-theme
+ln -fs $current_dir/zshrc.d $HOME/.zshrc.d
+ln -fs $current_dir/zsh-completions.d $HOME/.zsh-completions.d
+ln -fs $current_dir/zsh-commands.d $HOME/.zsh-commands.d

@@ -1,0 +1,21 @@
+source $HOME/.profile
+
+if [ -d $HOME/.zshrc.d ]; then
+  for conf in $HOME/.zshrc.d/*.zsh; do
+    . $conf
+  done
+fi
+
+if [ -d $HOME/.zsh-commands.d ]; then
+  for conf in $HOME/.zsh-commands.d/*; do
+    source $conf
+  done
+fi
+
+if [ -d $HOME/.zsh-completions.d ]; then
+  for conf in $HOME/.zsh-completions.d/*; do
+    source $conf
+  done
+fi
+
+source $HOME/.zsh.aliases

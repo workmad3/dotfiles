@@ -1,0 +1,4 @@
+function shutdown-circuits {
+  killall unicorn
+  killall sidekiq
+}
