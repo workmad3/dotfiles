@@ -56,6 +56,7 @@ autocmd FileType json set shiftwidth=2
 autocmd FileType json set softtabstop=2
 autocmd FileType json set autoindent
 autocmd FileType json set expandtab
+au BufRead,BufNewFile *.avsc set filetype=json
 " }}}
 
 " Javascript {{{

@@ -1,0 +1,5 @@
+function brew-reinstall-all {
+  for pkg in `brew list | xargs`; do
+    brew reinstall $pkg
+  done
+}

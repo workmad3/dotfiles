@@ -5,8 +5,39 @@ function lp-password {
   nohup lp-wait-clear >& /dev/null &
 }
 
+function lp-pinentry {
+  local pass=`lpass show "$1" --${2-password}`
+osascript <<END
+set pass to "${pass}"
+tell application "pinentry-mac"
+  activate
+  tell application "System Events" to tell process "pinentry-mac"
+    set value of text field 1 of window "Pinentry Mac" to pass
+    click button "OK" of window "Pinentry Mac"
+  end tell
+end tell
+END
+}
+
+function lp-tunnelblick {
+  local user=`lpass show "$1" --${2-username}`
+  local pass=`lpass show "$1" --${3-password}`
+osascript <<END
+set pass to "${pass}"
+set username to "${user}"
+tell application "Tunnelblick"
+  activate
+  tell application "System Events" to tell process "Tunnelblick"
+    set value of text field 1 of window "Tunnelblick: Login Required" to username
+    set value of text field 2 of window "Tunnelblick: Login Required" to pass
+    click button "OK" of window "Tunnelblick: Login Required"
+  end tell
+end tell
+END
+}
+
 alias lp-gpg-pw='lp-password "PGP Key" notes'
-alias lp-ssh-pw='lp-password "GPG-agent SSH password" notes'
+alias lp-ssh-pw='lp-pinentry "GPG-agent SSH password" notes'
 alias lp-apple-pw='lp-password "Apple ID"'
-alias lp-pia-pw='lp-password "Private Internet Access VPN"'
+alias lp-pia-pw='lp-tunnelblick "Private Internet Access VPN"'
 alias lp-avault-pw='lp-password "Ansible Vault" notes'
