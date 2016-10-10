@@ -5,4 +5,4 @@ current_dir=$(pwd)
 popd
 
 ln -fs $current_dir/profile $HOME/.profile
-mkdir ~/.profile.d
+ln -fs $current_dir/profile.d $HOME/.profile.d
