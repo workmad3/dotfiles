@@ -1,3 +1,0 @@
-function jira {
-  open "https://$JIRA_DOMAIN/browse/$1"
-}

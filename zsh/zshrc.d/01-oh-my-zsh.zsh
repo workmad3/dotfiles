@@ -19,6 +19,7 @@ plugins=(
 
   git
   git-hubflow
+  github
 
   rake rake-fast thor
   knife
@@ -29,6 +30,8 @@ plugins=(
   redis_cli
   httpie
   heroku
+  terraform
+  jira
 
   vundle
 
