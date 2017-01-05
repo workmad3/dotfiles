@@ -1,0 +1,22 @@
+function switch-docker {
+  case "$1" in
+  system)
+    eval $(docker-machine env --unset)
+    ;;
+  *)
+    eval $(docker-machine env "${1}")
+    ;;
+  esac
+}
+
+function cleanup-images {
+  docker rmi $(docker images -aq | uniq)
+}
+
+function cleanup-containers {
+  docker rm $(docker ps -aqf exited=0)
+}
+
+function current-docker-machine {
+  docker-machine active 2> /dev/null || echo "system"
+}

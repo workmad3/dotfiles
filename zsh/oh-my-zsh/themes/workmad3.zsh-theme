@@ -38,6 +38,11 @@ function folder_prompt {
 function user_prompt {
   echo "%{$fg[green]%}👤 %n%{$reset_color%}"
 }
+
+function docker_prompt {
+  echo "docker: $(current-docker-machine)"
+}
+
 build_prompt() {
   RETVAL=$?
 
@@ -48,6 +53,7 @@ build_prompt() {
   echo -n "$(folder_prompt) "
   echo -n "$(git_prompt_info)"
   echo -n "$(ruby_prompt) "
+  echo -n "$(docker_prompt) "
   #want the newline here
   echo "$(vi_mode_prompt_info)"
 

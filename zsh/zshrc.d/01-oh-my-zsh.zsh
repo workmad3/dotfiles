@@ -17,6 +17,9 @@ plugins=(
 
   chruby
 
+  docker
+  docker-compose
+
   git
   git-hubflow
   github
