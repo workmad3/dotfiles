@@ -31,3 +31,7 @@ function switch-docker-pwd {
     fi
   fi
 }
+
+if [[ ! "$preexec_functions" == *switch-docker-pwd* ]]; then
+  preexec_functions+=("switch-docker-pwd")
+fi
