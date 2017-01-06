@@ -1,4 +1,4 @@
-function switch-docker {
+function chdocker {
   case "$1" in
   system)
     eval $(docker-machine env --unset)
@@ -21,21 +21,21 @@ function current-docker-machine {
   echo -n ${DOCKER_MACHINE_NAME:-system}
 }
 
-function switch-docker-pwd {
+function chdocker-auto {
   if [ -e "Dockerfile" ]; then
-    local NEW_MACHINE_NAME=$(PWD | grep -o '[A-Za-z0-9\-]*$')
-    if [ "$DOCKER_MACHINE_NAME" = "$NEW_MACHINE_NAME" ]; then
+    local CHDOCKER_NAME=$(PWD | grep -o '[A-Za-z0-9\-]*$')
+    if [ "$DOCKER_MACHINE_NAME" = "$CHDOCKER_NAME" ]; then
       true
-    elif docker-machine env $NEW_MACHINE_NAME &> /dev/null; then
-      switch-docker $NEW_MACHINE_NAME
-    else
-      switch-docker system
+    elif docker-machine env $CHDOCKER_NAME &> /dev/null; then
+      chdocker $CHDOCKER_NAME
+      export CHDOCKER_AUTO=changed
     fi
-  elif ! [ -z "$DOCKER_MACHINE_NAME" ]; then
-    switch-docker system
+  elif ! [ -z "$DOCKER_MACHINE_NAME" ] && ! [ -z "$CHDOCKER_AUTO" ]; then
+    chdocker system
+    unset CHDOCKER_AUTO
   fi
 }
 
-if [[ ! "$preexec_functions" == *switch-docker-pwd* ]]; then
-  preexec_functions+=("switch-docker-pwd")
+if [[ ! "$preexec_functions" == *chdocker-auto* ]]; then
+  preexec_functions+=("chdocker-auto")
 fi
