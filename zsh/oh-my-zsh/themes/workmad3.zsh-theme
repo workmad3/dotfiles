@@ -40,7 +40,7 @@ function user_prompt {
 }
 
 function docker_prompt {
-  echo "docker: $(current-docker-machine)"
+  echo "%{$FG[039]%}🐋 $(current-docker-machine)%{$reset_color%}"
 }
 
 build_prompt() {
@@ -51,7 +51,7 @@ build_prompt() {
   #suppress the newlines here
   echo -n "$(box_name_prompt) "
   echo -n "$(folder_prompt) "
-  echo -n "$(git_prompt_info)"
+  echo -n "$(git_prompt_info) "
   echo -n "$(ruby_prompt) "
   echo -n "$(docker_prompt) "
   #want the newline here

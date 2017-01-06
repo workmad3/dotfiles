@@ -18,5 +18,16 @@ function cleanup-containers {
 }
 
 function current-docker-machine {
-  docker-machine active 2> /dev/null || echo "system"
+  echo -n ${DOCKER_MACHINE_NAME:-system}
+}
+
+function switch-docker-pwd {
+  if [ -e "Dockerfile" ]; then
+    local DOCKER_MACHINE_NAME=$(PWD | grep -o '[A-Za-z0-9\-]*$')
+    if docker-machine env $DOCKER_MACHINE_NAME 2> /dev/null; then
+      switch-docker $DOCKER_MACHINE_NAME
+    else
+      switch-docker system
+    fi
+  fi
 }
