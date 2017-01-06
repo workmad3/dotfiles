@@ -23,12 +23,16 @@ function current-docker-machine {
 
 function switch-docker-pwd {
   if [ -e "Dockerfile" ]; then
-    local DOCKER_MACHINE_NAME=$(PWD | grep -o '[A-Za-z0-9\-]*$')
-    if docker-machine env $DOCKER_MACHINE_NAME 2> /dev/null; then
-      switch-docker $DOCKER_MACHINE_NAME
+    local NEW_MACHINE_NAME=$(PWD | grep -o '[A-Za-z0-9\-]*$')
+    if [ "$DOCKER_MACHINE_NAME" = "$NEW_MACHINE_NAME" ]; then
+      true
+    elif docker-machine env $NEW_MACHINE_NAME &> /dev/null; then
+      switch-docker $NEW_MACHINE_NAME
     else
       switch-docker system
     fi
+  elif ! [ -z "$DOCKER_MACHINE_NAME" ]; then
+    switch-docker system
   fi
 }
 
