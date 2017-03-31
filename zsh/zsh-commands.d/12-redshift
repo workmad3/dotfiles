@@ -1,0 +1,7 @@
+function redshift-tunnel {
+  ssh redshift1 -L 15432:dw.data.generalassemb.ly:5439 -N -p 22
+}
+
+function open-redshift {
+  PGPASSWORD=$(lp-redshift-password) psql -h localhost -p 15432 -U $(lp-redshift-user) dev
+}

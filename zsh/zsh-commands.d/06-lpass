@@ -5,6 +5,10 @@ function lp-password {
   nohup lp-wait-clear >& /dev/null &
 }
 
+function lp-password-stdin {
+  lpass show "$1" --${2-password}
+}
+
 function lp-pinentry {
   local pass=`lpass show "$1" --${2-password}`
 osascript <<END
@@ -41,3 +45,5 @@ alias lp-ssh-pw='lp-pinentry "GPG-agent SSH password" notes'
 alias lp-apple-pw='lp-password "Apple ID"'
 alias lp-pia-pw='lp-tunnelblick "Private Internet Access VPN"'
 alias lp-avault-pw='lp-password "Ansible Vault" notes'
+alias lp-redshift-user='lp-password-stdin "Redshift" username'
+alias lp-redshift-password='lp-password-stdin "Redshift"'

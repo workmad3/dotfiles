@@ -24,7 +24,7 @@ function current-docker-machine {
 function chdocker-auto {
   if [ -e "Dockerfile" ]; then
     local CHDOCKER_NAME=$(PWD | grep -o '[A-Za-z0-9\-]*$')
-    if [ "$DOCKER_MACHINE_NAME" = "$CHDOCKER_NAME" ]; then
+    if [ "$DOCKER_MACHINE_NAME" = "$CHDOCKER_NAME" ] || [ "$CHDOCKER_AUTO" = "changed" ]; then
       true
     elif docker-machine env $CHDOCKER_NAME &> /dev/null; then
       chdocker $CHDOCKER_NAME
