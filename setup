@@ -1,9 +1,7 @@
 #!/bin/bash
 
-for dir in $( ls ); do
-  if [[ $dir != "setup" ]]; then
-    pushd $dir
-    ./setup
-    popd
-  fi
+for dir in $( ls -d */ ); do
+  pushd $dir
+  ./setup
+  popd
 done

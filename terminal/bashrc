@@ -1,0 +1,7 @@
+source $HOME/.profile
+
+if [ -d $HOME/.bashrc.d ]; then
+  for conf in $HOME/.bashrc.d/*.bsh; do
+    . $conf
+  done
+fi

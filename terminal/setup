@@ -13,3 +13,7 @@ ln -fs $current_dir/oh-my-zsh/themes/workmad3.zsh-theme $HOME/.oh-my-zsh/themes/
 ln -fs $current_dir/zshrc.d $HOME/.zshrc.d
 ln -fs $current_dir/zsh-completions.d $HOME/.zsh-completions.d
 ln -fs $current_dir/zsh-commands.d $HOME/.zsh-commands.d
+
+ln -fs $current_dir/bashrc $HOME/.bashrc
+ln -fs $current_dir/bash_profile $HOME/.bash_profile
+ln -fs $current_dir/bashrc.d $HOME/.bashrc.d

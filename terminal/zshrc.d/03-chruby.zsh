@@ -5,4 +5,4 @@ function chruby-reload {
 
 chruby-reload
 
-chruby 2.2.2
+chruby 2.4.0
