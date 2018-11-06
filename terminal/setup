@@ -6,6 +6,8 @@ popd
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+ln -fs $current_dir/profile $HOME/.profile
+ln -fs $current_dir/profile.d $HOME/.profile.d
 ln -fs $current_dir/zshrc $HOME/.zshrc
 ln -fs $current_dir/zsh_profile $HOME/.zsh_profile
 ln -fs $current_dir/zsh.aliases $HOME/.zsh.aliases

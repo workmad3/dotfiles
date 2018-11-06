@@ -1,11 +1,12 @@
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
+
+function load-nvmrc() {
+  node_version="$(nvm version)"
+  nvmrc_path="$(nvm_find_nvmrc)"
 
   if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
     if [ "$nvmrc_node_version" = "N/A" ]; then
       nvm install
@@ -20,7 +21,7 @@ load-nvmrc() {
 
 load-nvmrc
 
-find-up () {
+function find-up () {
     path=$(pwd)
     while [[ "$path" != "" && ! -e "$path/$1" ]]; do
         path=${path%/*}
@@ -28,7 +29,7 @@ find-up () {
     echo "$path"
 }
 
-cdnvm(){
+function cdnvm(){
     cd $@;
     nvm_path=$(find-up .nvmrc | tr -d '[:space:]')
 

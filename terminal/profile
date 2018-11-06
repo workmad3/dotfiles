@@ -1,8 +1,9 @@
 export PROFILE_D="$HOME/.profile.d"
 
 if [ -d $PROFILE_D ]; then
-  for conf in `ls $PROFILE_D`; do
-    local config_file="$PROFILE_D/$conf"
+  for c in `ls $PROFILE_D/*`; do
+    conf=$(basename $c)
+    config_file=$PROFILE_D/$conf
     if [[ -x "$config_file" ]]; then
       export ${conf}=`$config_file`
     else

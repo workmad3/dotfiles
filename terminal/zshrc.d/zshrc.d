@@ -1,0 +1,1 @@
+/Users/workmad3/personal_projects/dotfiles/terminal/zshrc.d
