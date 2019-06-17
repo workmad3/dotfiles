@@ -20,7 +20,7 @@ map <C-j> <C-w>j
 
 " Colour {{{
 set background=dark
-colorscheme railscasts
+colorscheme Tomorrow-Night
 " }}}
 
 " Ruby {{{

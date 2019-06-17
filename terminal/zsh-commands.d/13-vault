@@ -1,0 +1,3 @@
+function unseal-vault {
+  vault operator unseal < $(lpass show "Vault Keys" --field "Master Key")
+}
