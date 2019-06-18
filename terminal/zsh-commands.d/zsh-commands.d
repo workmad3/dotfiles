@@ -1,1 +1,0 @@
-/Users/workmad3/personal_projects/dotfiles/terminal/zsh-commands.d

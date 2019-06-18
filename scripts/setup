@@ -1,7 +1,0 @@
-#!/bin/bash
-
-pushd $(dirname "$0")
-current_dir=$(pwd)
-popd
-
-ln -fs $current_dir/bin $HOME/bin

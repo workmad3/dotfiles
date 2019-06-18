@@ -86,6 +86,8 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_enable_highlighting = 1
 " }}}
 
+let g:ruby_host_prog = '~/.gem/ruby/2.4.6/bin/neovim-ruby-host'
+
 " Supertab {{{
 " }}}
 

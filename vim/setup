@@ -6,8 +6,10 @@ popd
 
 pushd $HOME
 curl -L https://raw.github.com/zaiste/vimified/master/install.sh | sh
+mkdir -p .config/nvim
 popd
 
 ln -fs $current_dir/vimified/extra.vimrc $HOME/.vim/extra.vimrc
 ln -fs $current_dir/vimified/local.vimrc $HOME/.vim/local.vimrc
 ln -fs $current_dir/vimified/after.vimrc $HOME/.vim/after.vimrc
+ln -fs $current_dir/nvim/init.vim $HOME/.config/nvim/init.vim

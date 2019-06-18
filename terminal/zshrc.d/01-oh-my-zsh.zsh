@@ -1,13 +1,12 @@
-export ZSH=/Users/workmad3/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="workmad3"
 
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(
-  brew brew-cask
+  brew
   osx
-  colored-man
 
   zsh_reload
 
@@ -30,7 +29,6 @@ plugins=(
   gem
   bundler
 
-  redis_cli
   httpie
   heroku
   terraform
