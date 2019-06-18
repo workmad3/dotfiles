@@ -4,7 +4,13 @@ pushd $(dirname "$0")
 current_dir=$(pwd)
 popd
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+sh install.sh --unattended
+rm install.sh
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+echo "/usr/local/bin/zsh" >> /etc/shells
+fi
 
 ln -fs $current_dir/profile $HOME/.profile
 ln -fs $current_dir/profile.d $HOME/.profile.d

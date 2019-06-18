@@ -8,11 +8,10 @@ plugins=(
   brew
   osx
 
-  zsh_reload
-
-  history-substring-search
-
   vi-mode
+  zsh_reload
+  zsh-navigation-tools
+  history-substring-search
 
   chruby
 
@@ -33,6 +32,10 @@ plugins=(
   heroku
   terraform
   jira
+
+  nvm
+  npm
+  yarn
 
   vundle
 
