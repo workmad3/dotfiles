@@ -1,7 +1,8 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install chruby ruby-install git git-lfs hub python python@2 zsh zsh-completions zsh-history-substring-search zsh-syntax-highlighting chkrootkit lastpass-cli neovim nvm p7zip
+brew tap codeclimate/formulae
+brew install chruby ruby-install git git-lfs hub python python@2 zsh zsh-completions zsh-history-substring-search zsh-syntax-highlighting chkrootkit lastpass-cli neovim nvm p7zip codeclimate
 
 brew cask install alfred gpg-suite iterm2 docker bitbar
 fi
