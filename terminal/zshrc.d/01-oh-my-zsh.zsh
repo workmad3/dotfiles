@@ -6,10 +6,9 @@ COMPLETION_WAITING_DOTS="true"
 
 plugins=(
   brew
-  osx
+  macos
 
   vi-mode
-  zsh_reload
   zsh-navigation-tools
   history-substring-search
 

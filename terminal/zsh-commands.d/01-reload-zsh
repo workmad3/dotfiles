@@ -1,5 +1,5 @@
 function zsh-reload() {
-  source $HOME/.zshrc
+  omz reload
   zsh-reload-completions
 }
 
