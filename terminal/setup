@@ -25,3 +25,4 @@ ln -fs $current_dir/zsh-commands.d $HOME/.zsh-commands.d
 ln -fs $current_dir/bashrc $HOME/.bashrc
 ln -fs $current_dir/bash_profile $HOME/.bash_profile
 ln -fs $current_dir/bashrc.d $HOME/.bashrc.d
+ln -fs $current_dir/op-accounts $HOME/.op-accounts
