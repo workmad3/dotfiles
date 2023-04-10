@@ -1,14 +1,19 @@
 " vim: set syntax=vim:
-Bundle "nono/vim-handlebars"
-Bundle "leshill/vim-json"
-Bundle "tpope/vim-bundler"
-Bundle 'ervandew/supertab'
-Bundle "kien/rainbow_parentheses.vim"
-Bundle "delimitMate.vim"
-Bundle 'tpope/vim-rake'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'pangloss/vim-javascript'
-Bundle 'mxw/vim-jsx'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'jimenezrick/vimerl'
-Bundle 'ngmy/vim-rubocop'
+Plug 'ervandew/supertab'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-rake'
+Plug 'flazz/vim-colorschemes'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'elixir-lang/vim-elixir'
+Plug 'jimenezrick/vimerl'
+Plug 'ngmy/vim-rubocop'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'luochen1990/rainbow'
+Plug 'elzr/vim-json'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'github/copilot.vim'

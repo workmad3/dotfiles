@@ -1,0 +1,12 @@
+function aws-docker-login() {
+  local profile=$1
+  local region=$2
+  local account_id=$3
+
+  AWS_PROFILE=$profile aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $account_id.dkr.ecr.$region.amazonaws.com
+  export ECR_REGISTRY=$account_id.dkr.ecr.$region.amazonaws.com
+}
+
+function monitoring-docker-login() {
+  aws-docker-login monitoring us-east-1 532672528597
+}

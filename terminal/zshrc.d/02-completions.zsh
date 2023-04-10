@@ -9,7 +9,12 @@ zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
-fpath=($HOME/.zsh-completions.d /usr/local/share/zsh-completions $fpath)
-autoload -U $HOME/.zsh-completions.d/*(:t)
-autoload -U /usr/local/share/zsh-completions/*(:t)
+fpath=($HOME/.zsh-completions.d $fpath)
+
+if type brew &> /dev/null
+then
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fi
+
+autoload -Uz compinit
 compinit

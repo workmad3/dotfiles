@@ -19,4 +19,3 @@ if [ -d $HOME/.zsh-completions.d ]; then
 fi
 
 source $HOME/.zsh.aliases
-. "/Users/davidworkman/.acme.sh/acme.sh.env"

@@ -11,6 +11,7 @@ plugins=(
   vi-mode
   zsh-navigation-tools
   history-substring-search
+  colorize
 
   chruby
 
@@ -32,6 +33,7 @@ plugins=(
   terraform
   jira
 
+  node
   nvm
   npm
   yarn

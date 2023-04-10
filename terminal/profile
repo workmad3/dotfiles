@@ -1,5 +1,7 @@
 export PROFILE_D="$HOME/.profile.d"
 
+eval $(op signin)
+
 if [ -d $PROFILE_D ]; then
   for c in `ls $PROFILE_D/*`; do
     conf=$(basename $c)

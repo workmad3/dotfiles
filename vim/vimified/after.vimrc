@@ -9,7 +9,7 @@ set number
 " General {{{
 set softtabstop=2
 set shiftwidth=2
-set shell=/usr/local/bin/zsh
+set shell=/opt/homebrew/bin/zsh
 set eol
 
 map <C-h> <C-w>h
@@ -59,15 +59,27 @@ autocmd FileType json set expandtab
 au BufRead,BufNewFile *.avsc set filetype=json
 " }}}
 
+" Copilot {{{
+let g:copilot#enable = 1
+" }}}
+
 " Javascript {{{
 au BufRead,BufNewFile *.es6 set filetype=javascript
+nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>qf  <Plug>(coc-fix-current)
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>cl  <Plug>(coc-codelens-action)
+nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
+xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 " }}}
 
 " Rainbow Parentheses {{{
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+let g:rainbow_active = 1
 " }}}
 
 " Syntastic {{{
@@ -87,13 +99,23 @@ let g:syntastic_enable_highlighting = 1
 " }}}
 
 " NVim ruby setup {{{
-let g:ruby_host_prog = '~/.gem/ruby/2.4.6/bin/neovim-ruby-host'
+let g:ruby_host_prog = '~/.gem/ruby/3.0.3/bin/neovim-ruby-host'
+" }}}
+
+" NVim python setup {{{
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
 " }}}
 
 " Supertab {{{
 " }}}
 
 " NerdTree {{{
+" }}}
+
+" Vim Prettier {{{
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
 " }}}
 
 " }}}
