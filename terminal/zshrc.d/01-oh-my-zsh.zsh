@@ -13,25 +13,19 @@ plugins=(
   history-substring-search
   colorize
 
-  chruby
-
   docker
   docker-compose
 
   git
+  git-prompt
   git-hubflow
   github
 
-  rake rake-fast thor
-  knife
-
-  gem
-  bundler
+  encode64
 
   httpie
   heroku
   terraform
-  jira
 
   node
   nvm
@@ -40,7 +34,8 @@ plugins=(
 
   vundle
 
-  rails)
+  1password
+)
 
 # User configuration
 

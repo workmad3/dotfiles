@@ -27,10 +27,6 @@ function last_status {
   echo "%(?,%{$fg[green]%}😸 ,%{$fg[red]%}😾 )$RETVAL%{$reset_color%}"
 }
 
-function ruby_prompt {
-  echo "%{$fg[red]%}💎 ${RUBY_ENGINE}-${RUBY_VERSION}%{$reset_color%}"
-}
-
 function folder_prompt {
   echo "%{$fg[yellow]%}📂 %~%{$reset_color%}"
 }
@@ -51,8 +47,7 @@ build_prompt() {
   #suppress the newlines here
   echo -n "$(box_name_prompt) "
   echo -n "$(folder_prompt) "
-  echo -n "$(git_prompt_info) "
-  echo -n "$(ruby_prompt) "
+  echo -n "$(git_super_status) "
   echo -n "$(docker_prompt) "
   #want the newline here
   echo "$(vi_mode_prompt_info)"
@@ -68,12 +63,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%})"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}🔴 %{$reset_color%}"
 
-ZSH_THEME_SVN_PROMPT_PREFIX="%{$reset_color%}svn:(%{$fg[red]%}"
-ZSH_THEME_SVN_PROMPT_SUFFIX="%{$reset_color%})"
-
-ZSH_THEME_SVN_PROMPT_CLEAN="%{$reset_color%}"
-ZSH_THEME_SVN_PROMPT_DIRTY="%{$fg[red]%}🔴 %{$reset_color%}"
-
 MODE_INDICATOR="%{$fg_bold[white]%}VIM%{$reset_color%}"
 
 PROMPT='$(build_prompt)'
+RPROMPT=''
