@@ -18,8 +18,6 @@ plugins=(
 
   git
   git-prompt
-  git-hubflow
-  github
 
   encode64
 
@@ -28,7 +26,6 @@ plugins=(
   terraform
 
   node
-  nvm
   npm
   yarn
 
