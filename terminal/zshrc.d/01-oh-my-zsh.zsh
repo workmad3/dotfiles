@@ -8,6 +8,10 @@ plugins=(
   brew
   macos
 
+  aliases
+
+  mise
+
   vi-mode
   zsh-navigation-tools
   history-substring-search
@@ -18,6 +22,7 @@ plugins=(
 
   git
   git-prompt
+  git-extras
 
   encode64
 
@@ -30,6 +35,10 @@ plugins=(
   yarn
 
   vundle
+
+  ruby
+  gem
+  bundler
 
   1password
 )

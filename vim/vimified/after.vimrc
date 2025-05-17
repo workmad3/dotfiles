@@ -23,6 +23,10 @@ set background=dark
 colorscheme Tomorrow-Night
 " }}}
 
+" YAML {{{
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+" }}}
+
 " Ruby {{{
 au BufRead,BufNewFile Gemfile set filetype=ruby
 au BufRead,BufNewFile Cheffile set filetype=ruby
@@ -65,17 +69,26 @@ let g:copilot#enable = 1
 
 " Javascript {{{
 au BufRead,BufNewFile *.es6 set filetype=javascript
-nmap <leader>ac  <Plug>(coc-codeaction)
-nmap <leader>qf  <Plug>(coc-fix-current)
+
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>cl  <Plug>(coc-codelens-action)
-nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
-xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
-nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nmap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nmap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+nmap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nmap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nmap <leader>wa <cmd>lua vim.lsp.buf.add_workspace_folder()<CR>
+nmap <silent> <leader>wr <cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>
+nmap <leader>wl <cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>
+nmap <leader>D <cmd>lua vim.lsp.buf.type_definition()<CR>
+nmap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+nmap <leader>ca <cmd>lua vim.lsp.buf.code_action()<CR>
+nmap gr <cmd>lua vim.lsp.buf.references()<CR>
+nmap <leader>e <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nmap [d <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nmap ]d <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nmap <leader>q <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
+nmap <leader>f <cmd>lua vim.lsp.buf.formatting()<CR>
+nmap <silent> <C-c> :CodeCompanionChat<CR>
 " }}}
 
 " Rainbow Parentheses {{{
@@ -107,15 +120,18 @@ let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/opt/homebrew/bin/python3'
 " }}}
 
-" Supertab {{{
-" }}}
-
-" NerdTree {{{
-" }}}
-
 " Vim Prettier {{{
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 " }}}
 
+" Supertab {{{
+"let g:SuperTabDefaultCompletionType = 'context'
+"let g:SuperTabDefaultCompletionType = "<c-n>"
+"let g:SuperTabContextDefaultCompletionType = "<c-n>"
 " }}}
+
+" }}}
+
+" Load after.lua
+lua require('after')

@@ -10,3 +10,10 @@ function aws-docker-login() {
 function monitoring-docker-login() {
   aws-docker-login monitoring us-east-1 532672528597
 }
+
+function encrypt-secret() {
+  local secret_file=$1
+  local secret=$(cat $secret_file)
+
+  aws kms encrypt --profile carwow-dev --key-id arn:aws:kms:eu-west-1:544932863364:alias/terraform --plaintext fileb://<(echo -n "${secret}") --output text --query CiphertextBlob
+}
