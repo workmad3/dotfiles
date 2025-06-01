@@ -1,10 +1,11 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install git
+brew install git openssh
 brew install zsh zsh-completions zsh-history-substring-search zsh-syntax-highlighting 
 brew install neovim 
 brew install mise openssl@3 readline libyaml gmp autoconf
+brew install cmake hub
 brew install iterm2 1password 1password-cli font-hack-nerd-font
 fi
 
