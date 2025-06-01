@@ -1,0 +1,11 @@
+#!/bin/bash
+
+pushd $(dirname "$0")
+current_dir=$(pwd)
+popd
+
+pushd $HOME
+mkdir -p .config/mise
+popd
+
+ln -fs $current_dir/config.toml $HOME/.config/mise/config.toml

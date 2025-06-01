@@ -1,4 +1,3 @@
-source $HOME/.op-accounts
 export PROFILE_D="$HOME/.profile.d"
 
 if [ -d $PROFILE_D ]; then
