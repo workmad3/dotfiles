@@ -4,8 +4,4 @@ pushd $(dirname "$0")
 current_dir=$(pwd)
 popd
 
-pushd $HOME
-mkdir -p .config/mise
-popd
-
-ln -fs $current_dir/config.toml $HOME/.config/mise/config.toml
+ln -fs $current_dir/mise $HOME/.config/mise
