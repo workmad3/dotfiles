@@ -1,6 +1,10 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install git zsh zsh-completions zsh-history-substring-search zsh-syntax-highlighting neovim nvm
+brew install git
+brew install zsh zsh-completions zsh-history-substring-search zsh-syntax-highlighting 
+brew install neovim 
+brew install mise openssl@3 readline libyaml gmp autoconf
+brew install iterm2 1password 1password-cli font-hack-nerd-font
 fi
 
