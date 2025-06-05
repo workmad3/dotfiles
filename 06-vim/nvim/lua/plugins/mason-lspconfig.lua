@@ -1,9 +1,9 @@
 return {
 	{
 		"mason-org/mason-lspconfig.nvim",
-		opts = {
-			ensure_installed = { "ruby_lsp", "rubocop", "lua_ls", "cssls", "html", "jsonls", "terraformls", "ts_ls", "yamlls" },
-		},
+		config = function()
+		  require('config.lspconfig')
+		end,
 		dependencies = {
 			{
 				"mason-org/mason.nvim",
@@ -18,10 +18,7 @@ return {
 				},
 			},
 			{
-				"neovim/nvim-lspconfig",
-				config = function()
-					require('config.lspconfig')
-				end
+				"neovim/nvim-lspconfig"
 			},
 		},
 	},
