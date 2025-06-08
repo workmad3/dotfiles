@@ -6,8 +6,13 @@ m.setup({
 	automatic_enable = false,
 })
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 for _, server_name in pairs(m.get_installed_servers()) do
-  local s = {}
+  local s = {
+    capabilities = capabilities
+  }
+
   if server_name == 'lua_ls' then
     s['settings'] = { Lua = { diagnostics = { globals = { 'vim' } } } }
   end
