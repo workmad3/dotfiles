@@ -6,7 +6,7 @@ return {
 		config = function()
 			-- load the colorscheme here
 			vim.g.background = 'dark'
-			vim.cmd.colorscheme('tokyonight')
+			vim.cmd.colorscheme('tokyonight-moon')
 		end,
 	},
 }
