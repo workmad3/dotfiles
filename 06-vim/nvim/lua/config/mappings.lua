@@ -1,8 +1,8 @@
 local map = vim.keymap.set
 
 -- Buffer Nav
-map('n', '<leader>bn', vim.cmd.bnext)
-map('n', '<leader>bp', vim.cmd.bprev)
+map('n', '<leader>bn', vim.cmd.bnext, { desc = "Next buffer" })
+map('n', '<leader>bp', vim.cmd.bprev, { desc = "Previous buffer" })
 
 -- Window Nav
 map('n', '<C-h>', '<C-w>h')
@@ -11,8 +11,8 @@ map('n', '<C-k>', '<C-w>k')
 map('n', '<C-j>', '<C-w>j')
 
 -- Preserve visual in indent
-map('v', '<', '<gv')
-map('v', '>', '>gv')
+map('v', '<', '<gv', { desc = "Unindent highlighted code" })
+map('v', '>', '>gv', { desc = "Indent highlighted code" })
 
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 
@@ -41,3 +41,23 @@ map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 map("n", "<leader>wk", function()
 	vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
 end, { desc = "whichkey query lookup" })
+
+-- LSP
+map('n', 'gD', vim.lsp.buf.declaration, { silent = true, desc = "Goto declaration" })
+map('n', 'gd', vim.lsp.buf.definition, { silent = true, desc = "Goto definition" })
+map('n', 'gi', vim.lsp.buf.implementation, { silent = true, desc = "Goto implementation" })
+map('n', 'gr', vim.lsp.buf.references, { silent = true, desc = "List references" })
+map('n', 'go', vim.lsp.buf.type_definition, { desc = "Goto type definition" })
+map('n', 'gs', vim.lsp.buf.signature_help, { silent = true, desc = "Show signature" })
+map('n', 'K', vim.lsp.buf.hover, { silent = true, desc = "Show info" })
+map('n', '<leader>rn', vim.lsp.buf.rename, { desc = "Rename" })
+map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "Run code action" })
+map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, { silent = true, desc = "Add folder to workspace" })
+map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, { silent = true, desc = "Remove folder from workspace" })
+map('n', '<leader>wl', function()
+	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+end, { desc = "List workspace folders" })
+
+map('n', 'gl', vim.diagnostic.open_float)
+map('n', '[d', vim.diagnostic.goto_prev)
+map('n', ']d', vim.diagnostic.goto_next)

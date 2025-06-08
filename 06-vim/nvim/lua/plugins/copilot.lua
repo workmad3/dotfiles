@@ -10,7 +10,7 @@ return {
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
-		cmd = { "CopilotChat", "CopilotChatOpen", "CopilotChatClose", "CopilotChatToggle", "CopilotChatStop", "CopilotChatReset", "CopilotChatSave", "CopilotChatLoad", "CopilotChatPrompts", "CopilotChatModels", "CopilotChatAgents" },
+		cmd = { "CopilotChat", "CopilotChatExplain", "CopilotChatOpen", "CopilotChatClose", "CopilotChatToggle", "CopilotChatStop", "CopilotChatReset", "CopilotChatSave", "CopilotChatLoad", "CopilotChatPrompts", "CopilotChatModels", "CopilotChatAgents" },
 		dependencies = {
 			{ "zbirenbaum/copilot.lua" },
 			{ "nvim-lua/plenary.nvim", branch = "master" },
