@@ -1,4 +1,5 @@
 vim.g.mapleader = ','
+vim.g.maplocalleader = ','
 
 vim.opt.number = true
 vim.opt.relativenumber = false
@@ -32,14 +33,3 @@ vim.api.nvim_create_autocmd(
 		command = [[:%s/\s\+$//e]]
 	}
 )
-
-local map = vim.keymap.set
-
-map('n', '<leader>bn', vim.cmd.bnext)
-map('n', '<leader>bp', vim.cmd.bprev)
-map('n', '<C-h>', '<C-w>h')
-map('n', '<C-l>', '<C-w>l')
-map('n', '<C-k>', '<C-w>k')
-map('n', '<C-j>', '<C-w>j')
-map('v', '<', '<gv')
-map('v', '>', '>gv')

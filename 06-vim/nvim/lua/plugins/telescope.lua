@@ -1,11 +1,13 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		cmd = "Telescope",
-		opts = {},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-lua/plenary.nvim",
+			"BurntSushi/ripgrep",
+		},
+		cmd = "Telescope"
 	},
-
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },

@@ -1,14 +1,8 @@
-require('copilot').setup({
-  auto_trigger = true,
-  auto_refresh = true
-})
-
 local suggestion = require('copilot.suggestion')
 local panel = require('copilot.panel')
 
 local map = vim.keymap.set
 
-map('n', '<leader>cp', panel.toggle)
 map('n', '<leader>ca', panel.accept)
 map('n', '<leader>cn', panel.jump_next)
 map('n', '<leader>cp', panel.jump_prev)
