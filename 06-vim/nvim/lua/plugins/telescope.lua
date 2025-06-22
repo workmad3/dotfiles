@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
+		lazy = true,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-lua/plenary.nvim",
@@ -10,6 +11,7 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
+		lazy = true,
 		event = { "BufReadPost", "BufNewFile" },
 		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 		build = ":TSUpdate",
