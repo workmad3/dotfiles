@@ -17,4 +17,4 @@ then
 fi
 
 autoload -Uz compinit
-compinit
+compinit  -u
