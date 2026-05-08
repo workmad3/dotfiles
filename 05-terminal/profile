@@ -1,5 +1,7 @@
 export PROFILE_D="$HOME/.profile.d"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 if [ -d $PROFILE_D ]; then
   for c in `ls $PROFILE_D/*`; do
     conf=$(basename $c)
@@ -11,3 +13,8 @@ if [ -d $PROFILE_D ]; then
     fi
   done
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/workmad3/.lmstudio/bin"
+# End of LM Studio CLI section
+

@@ -29,18 +29,21 @@ map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidd
 
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
 map(
-	"n",
-	"<leader>fa",
-	"<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-	{ desc = "telescope find all files" }
+  "n",
+  "<leader>fa",
+  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+  { desc = "telescope find all files" }
 )
 
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
 map("n", "<leader>wk", function()
-	vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
+  vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
 end, { desc = "whichkey query lookup" })
+
+--fugitive
+map({ "n", "v" }, "gh", ":GBrowse<CR>", { desc = "Open in Github" })
 
 -- LSP
 map('n', 'gD', vim.lsp.buf.declaration, { silent = true, desc = "Goto declaration" })
@@ -55,9 +58,17 @@ map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "Run code action" })
 map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, { silent = true, desc = "Add folder to workspace" })
 map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, { silent = true, desc = "Remove folder from workspace" })
 map('n', '<leader>wl', function()
-	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end, { desc = "List workspace folders" })
 
-map('n', 'gl', vim.diagnostic.open_float)
-map('n', '[d', vim.diagnostic.goto_prev)
-map('n', ']d', vim.diagnostic.goto_next)
+map('n', 'gl', vim.diagnostic.open_float, { desc = "Show diagnostic float" })
+map('n', '[d', vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+map('n', ']d', vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+
+-- Quickfix navigation
+map('n', ']q', vim.cmd.cnext, { desc = "Next quickfix item" })
+map('n', '[q', vim.cmd.cprev, { desc = "Previous quickfix item" })
+
+-- LSP restart
+map('n', '<leader>lr', '<cmd>LspRestart<CR>', { desc = "Restart LSP servers" })
+map('n', '<leader>li', '<cmd>LspInfo<CR>', { desc = "LSP server info" })

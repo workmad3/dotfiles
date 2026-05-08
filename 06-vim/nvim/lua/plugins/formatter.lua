@@ -1,8 +1,9 @@
 return {
-	{
-		"lukas-reineke/lsp-format.nvim",
-		config = function()
-			require("config.formatter")
-		end
-	},
+  {
+    "lukas-reineke/lsp-format.nvim",
+    event = "LspAttach",
+    config = function()
+      require("config.formatter")
+    end
+  },
 }

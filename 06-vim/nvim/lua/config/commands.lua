@@ -1,4 +1,1 @@
-vim.api.nvim_create_autocmd('FileType', {
-	pattern = { '<filetype>' },
-	callback = function() vim.treesitter.start() end,
-})
+-- Custom commands and filetype-specific autocmds can be added here.

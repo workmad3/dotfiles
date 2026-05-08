@@ -1,0 +1,38 @@
+function rebuild_indexes() {
+  declare -a INDEXES=("unbuilt_vehicles" "vehicles" "cheapest_deals" "deals")
+
+  for i in "${INDEXES[@]}"; do
+    rails es:$i:dev_index
+  done
+}
+
+function carwow_start_all() {
+  add_carwow_path
+  carwow start sites
+  carwow start flatmin
+  carwow start vehicle_lookup_app
+
+  carwow start kafka
+  carwow start kafka-consumer flatmin
+
+  carwow start sidekiq-worker flatmin
+  carwow start sidekiq-worker quotes_site
+}
+
+function carwow_update_databases() {
+  aws sso login --profile carwow-dev
+
+  carwow stop all
+  carwow start core
+
+  declare -a SERVICES=("flatmin" "quotes_site" "dealers_site" "deals_service" "research_site")
+
+  for service in "${SERVICES[@]}"; do
+    echo "Updating database for $service"
+    pushd ~/projects/carwow/$service || return
+    rm dev_database_uk.dump
+    rake db:restore
+    rm dev_database_uk.dump
+    popd
+  done
+}
